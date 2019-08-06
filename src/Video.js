@@ -28,6 +28,7 @@ export default class Video extends Component{
             isSeeking: false,
             isShowBar: false,
             isFull: false,
+            clickTime: 0,
         }
     }
 
@@ -102,6 +103,20 @@ export default class Video extends Component{
         }
     }
 
+    /**
+     * 双击暂停
+     * @private
+     */
+    _doubleClickPause(){
+        if(Math.round(new Date().getTime()) - this.state.clickTime <= 500){
+            this._togglePlay();
+        }else{
+            this.setState({
+                clickTime: Math.round(new Date().getTime()),
+            })
+        }
+    }
+
     // 开始手势
     onPanResponderGrant(evt, gestureState) {
         // 判断手势移动
@@ -110,6 +125,7 @@ export default class Video extends Component{
         //         isMoved: false
         //     })
         // }
+        this._doubleClickPause();
     }
 
     onPanResponderMove(evt, gestureState) {
@@ -180,7 +196,6 @@ export default class Video extends Component{
     };
 
     _onBuffer(value){
-        console.log(value);
         this.setState({
             isBuffering: value.isBuffering
         })
@@ -256,6 +271,7 @@ export default class Video extends Component{
     }
 
     _togglePlay(){
+        LayoutAnimation.easeInEaseOut();
         if(this.state.paused)
             KeepAwake.activate();
         else
@@ -310,7 +326,7 @@ export default class Video extends Component{
                 }
                 <LinearGradient
                     colors={['rgba(0,0,0,.6)', 'rgba(255,255,255,0)']}
-                    style={[styles.titlebar, !paused&&!isShowBar&&{top: isFull?-110:-70}]}
+                    style={[styles.titlebar, !paused&&!isShowBar&&{top: isFull?-110:-70}, isFull&&{paddingHorizontal: 20}]}
                 >
                     {
                         titleLeft
@@ -321,7 +337,7 @@ export default class Video extends Component{
                 </LinearGradient>
                 <LinearGradient
                     colors={['rgba(255,255,255,0)', 'rgba(0,0,0,.6)']}
-                    style={[styles.videobar, !paused&&!isShowBar&&{bottom: isFull?-70:-40}]}
+                    style={[styles.videobar, !paused&&!isShowBar&&{bottom: isFull?-70:-40}, isFull&&{paddingHorizontal: 20}]}
                 >
                     <TouchableOpacity
                         onPress={() => this._togglePlay()}
@@ -402,7 +418,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     videoPause: {
-        zIndex: 30,
+        zIndex: 5,
         position: 'absolute',
         left: 0,
         right: 0,
