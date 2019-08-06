@@ -22,6 +22,7 @@ echo D | xcopy node_modules\react-native-vector-icons\Fonts android\app\src\main
 - 滑屏快进
 - 全屏
 - 开始时间
+- 双击暂停
 - 用的时候再写
 
 ## 截图
@@ -54,7 +55,7 @@ export default class App extends Component{
 ## 属性
 | 名称  | 备注 |
 |---|---|
-|source|资源路径（写法见[react-native-video#source]('https://github.com/react-native-community/react-native-video#source')）|
+|source|资源路径（写法见[react-native-video#source](https://github.com/react-native-community/react-native-video#source)）|
 |themeColor|加载按钮与silder滑块颜色，见图|
 |title|视频标题名称|
 |startTime|视频开始时间|
@@ -64,4 +65,4 @@ export default class App extends Component{
 | 名称  | 备注 |
 |---|---|
 |onFullScreen|返回是否全屏（true为全屏）|
-|onProgress|返回播放参数（见[react-native-video#onprogress]('https://github.com/react-native-community/react-native-video#onprogress')）|
+|onProgress|返回播放参数（见[react-native-video#onprogress](https://github.com/react-native-community/react-native-video#onprogress)）|
