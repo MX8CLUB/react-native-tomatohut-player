@@ -15,7 +15,7 @@ npm install react-native-orientation --save
 npm install react-native-keep-awake --save
 npm install react-native-vector-icons --save
 npm install react-native-tomatohut-player --save
-echo D | xcopy node_modules\react-native-vector-icons\Fonts android\app\src\main\assets\fonts /D
+echo D | xcopy node_modules\react-native-vector-icons\Fonts android\app\src\main\assets\fonts /e
 ```
 ## 功能
 
