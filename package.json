@@ -1,7 +1,7 @@
 {
-  "name": "react-native-TomatoHutPlayer",
+  "name": "react-native-tomatohut-player",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
