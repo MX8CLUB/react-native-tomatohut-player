@@ -1,7 +1,5 @@
 {
   "name": "react-native-tomatohut-player",
-  "version": "0.0.1",
-  "private": false,
   "scripts": {
     "start": "react-native start",
     "test": "jest",
@@ -26,7 +24,27 @@
     "metro-react-native-babel-preset": "^0.55.0",
     "react-test-renderer": "16.8.6"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MX8CLUB/react-native-tomatohut-player.git"
+  },
+  "description": "react-native播放器，Video Player",
+  "keywords": [
+    "react-native",
+    "react",
+    "video",
+    "react-native-video",
+    "video-player",
+    "Video Player"
+  ],
+  "author": "Jim",
+  "license": "MIT",
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/MX8CLUB/react-native-tomatohut-player/issues"
+  },
+  "homepage": "https://github.com/MX8CLUB/react-native-tomatohut-player#readme",
+  "version": "0.0.2"
 }
