@@ -66,3 +66,5 @@ export default class App extends Component{
 |---|---|
 |onFullScreen|返回是否全屏（true为全屏）|
 |onProgress|返回播放参数（见[react-native-video#onprogress](https://github.com/react-native-community/react-native-video#onprogress)）|
+|onEnd|播放结束（见[react-native-video#onend](https://github.com/react-native-community/react-native-video#onend)|
+|onError|播放失败（见[react-native-video#onerror](https://github.com/react-native-community/react-native-video#onerror)|
