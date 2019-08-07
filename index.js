@@ -10,5 +10,5 @@ import Video from './src/Video';
 
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 // AppRegistry.registerComponent(appName, () => App);
-
+//
 export default Video;

@@ -25,7 +25,6 @@ export default class Video extends Component{
             isMoved: true,
             isSet: false,
             isBuffering: true,
-            isSeeking: false,
             isShowBar: false,
             isFull: false,
             clickTime: 0,
@@ -231,10 +230,6 @@ export default class Video extends Component{
         });
         if(bool){
             this.player.seek(value);
-        }else{
-            this.setState({
-                isSeeking: true,
-            })
         }
         if(show){
             this._showBar();
@@ -243,18 +238,16 @@ export default class Video extends Component{
 
     _onProgress(data) {
         this.props.onProgress&&this.props.onProgress(data);
-        if(!this.state.isSeeking){
-            this.setState({
-                currentTime: data.currentTime,
-                playableDuration: data.currentTime,
-                isSeeking: false,
-                isError: false,
-                isEnd: false,
-            });
-        }
+        this.setState({
+            currentTime: data.currentTime,
+            playableDuration: data.currentTime,
+            isError: false,
+            isEnd: false,
+        });
     };
 
     _onError(data){
+        this.props.onError&&this.props.onError(data);
         this.setState({
             isError: true,
             isBuffering:false
@@ -262,6 +255,7 @@ export default class Video extends Component{
     }
 
     _onEnd(data){
+        this.props.onEnd&&this.props.onEnd(data);
         this.timer&&clearTimeout(this.timer);
         LayoutAnimation.easeInEaseOut();
         this.setState({
