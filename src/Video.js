@@ -247,6 +247,7 @@ export default class Video extends Component{
     };
 
     _onError(data){
+        if(this.state.isError) return;
         this.props.onError&&this.props.onError(data);
         this.setState({
             isError: true,
@@ -255,6 +256,7 @@ export default class Video extends Component{
     }
 
     _onEnd(data){
+        if(this.state.isEnd) return;
         this.props.onEnd&&this.props.onEnd(data);
         this.timer&&clearTimeout(this.timer);
         LayoutAnimation.easeInEaseOut();
@@ -326,12 +328,13 @@ export default class Video extends Component{
                         titleLeft
                     }
                     <Text
-                        style={{color: '#fff', fontSize: 20}}
+                        style={{color: '#fff', fontSize: 20, marginLeft: 10}}
+                        numberOfLines={1}
                     >{title}</Text>
                 </LinearGradient>
                 <LinearGradient
                     colors={['rgba(255,255,255,0)', 'rgba(0,0,0,.6)']}
-                    style={[styles.videobar, !paused&&!isShowBar&&{bottom: isFull?-70:-40}, isFull&&{paddingHorizontal: 20}]}
+                    style={[styles.videobar, !paused&&!isShowBar&&{bottom: isFull?-110:-70}, isFull&&{paddingHorizontal: 20}]}
                 >
                     <TouchableOpacity
                         onPress={() => this._togglePlay()}
