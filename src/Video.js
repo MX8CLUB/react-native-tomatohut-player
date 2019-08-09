@@ -247,6 +247,7 @@ export default class Video extends Component{
     };
 
     _onError(data){
+        if(this.state.isError) return;
         this.props.onError&&this.props.onError(data);
         this.setState({
             isError: true,
@@ -255,6 +256,7 @@ export default class Video extends Component{
     }
 
     _onEnd(data){
+        if(this.state.isEnd) return;
         this.props.onEnd&&this.props.onEnd(data);
         this.timer&&clearTimeout(this.timer);
         LayoutAnimation.easeInEaseOut();
