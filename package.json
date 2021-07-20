@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.4",
+    "react-native": "0.62.3",
     "react-native-keep-awake": "^4.0.0",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-orientation": "^3.1.3",
